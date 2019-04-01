@@ -1,0 +1,10 @@
+
+
+#mycarousel .carousel-inner>.item >img{
+    display: block;
+    text-align: center;
+    width: 600px;
+    height: 600px;
+}
+
+

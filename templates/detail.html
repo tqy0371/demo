@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍的描述</title>
+</head>
+<body>
+
+    {% if userinfo %}
+    <h1>你好:
+        <small>{{ userinfo }}</small>
+    </h1>
+    {% endif %}
+
+
+    {% for info in infoarry %}
+         {% if info[0]==id %}
+            <h2>书籍名：{{ info[1] }}</h2>
+             <h2>价格：{{ info[2] }}</h2>
+            <h4>书籍内容：{{ info[3] }}</h4>
+         {% endif %}
+    {% endfor %}
+
+
+    <a href="/lists"><button>返回</button></a>
+</body>
+</html>

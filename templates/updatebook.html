@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改书籍</title>
+</head>
+<body>
+    <form action="/updatebook/{{ id }}" method="post">
+        {% for info in result %}
+            {% if info[0]==id %}
+                <label for="">书籍：</label>
+                <input type="text" name="name" value="{{ info[1] }}">
+                <label for="">价格：</label>
+                <br>
+                <br>
+                <input type="text" name="price" value="{{ info[2] }}">
+                <br>
+                <br>
+                <label for="">书籍描述：</label>
+                <br>
+                <textarea name="desc"  cols="30" rows="10">{{ info[3] }}</textarea>
+                <br>
+                <br>
+                <input type="submit" value="提交">
+
+            {% endif %}
+        {% endfor %}
+    <a href="/lists"><button>返回</button></a>
+    </form>
+</body>
+</html>

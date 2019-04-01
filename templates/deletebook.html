@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>书籍列表</h1>
+
+    {% if infoarry %}
+        {% for info in infoarry %}
+            <a class="detail" href="/detail/{{ info[0] }}">书名:{{ info[1] }}</a>
+            <a class="detail" href="/detail/{{ info[0] }}">价格:{{ info[2] }}</a>
+            <a href="/deletebook/{{ info[0] }}"><button>删除</button></a>
+            <a href="/updatebook/{{ info[0] }}"><button>修改</button></a>
+            <br>
+            <br>
+        {% endfor %}
+
+    {% else %}
+
+        <h4>你还没有添加项目</h4>
+    {% endif %}
+
+    <a href="/insertbook"><button>添加</button></a>
+    <a href="/"><button>返回</button></a>
+</body>
+</html>

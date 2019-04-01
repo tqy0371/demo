@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>书籍列表</title>
+    <link rel="stylesheet" href="../static/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="../static/jQuery%20version/jquery-3.1.0.min.js">
+	</script>
+	
+	
+	<script type="text/javascript" src="../static/bootstrap-4.3.1-dist/js/bootstrap.min.js">	
+	</script>
+</head>
+
+<style>
+    .detail{
+        text-decoration: none;
+    }
+</style>
+<body>
+    {% if userinfo %}
+    <h1>你好:
+        <small>{{ userinfo }}</small>
+    </h1>
+    {% endif %}
+
+    <h1 style="text-align: center">书籍列表</h1>
+    <br>
+    <br>
+    {% if infoarry %}
+
+		<table class="table table-bordered table-dark">
+            {% for info in infoarry %}
+			<tr>
+				<th scope="col">书名</th>
+                <th scope="col">价格</th>
+				<th scope="col">删除和修改</th>			
+			</tr>					
+			<tr>
+
+				<td>
+					<a class="detail" href="/detail/{{ info[0] }}">{{ info[1] }}</a>
+				</td>
+                <td>
+                    <a class="detail" href="/detail/{{ info[0] }}">{{ info[2] }}</a>
+                </td>
+
+				<td>
+					<a href="/deletebook/{{ info[0] }}"><button>删除</button></a>
+					<a href="/updatebook/{{ info[0] }}"><button>修改</button></a>
+				</td>
+
+			</tr>		
+
+            {% endfor %}
+        </table>
+
+    {% else %}
+
+        <h4 style="text-align: center">你还没有添加项目</h4>
+    {% endif %}
+    <div style="text-align: center">
+        <a href="/insertbook"><button>添加</button></a>
+        <a href="/"><button>返回</button></a>
+    </div>
+</body>
+</html>
